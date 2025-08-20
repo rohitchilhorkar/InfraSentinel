@@ -1,0 +1,7 @@
+---
+- name: InfraSentinel
+  hosts: localhost
+  tasks:
+    - name: Lets Start!!
+      debug: 
+        msg: InfraSentinel
