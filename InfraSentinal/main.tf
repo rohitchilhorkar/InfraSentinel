@@ -5,9 +5,7 @@ module "vpc"{
 
     name = "${var.cluster-name}-vpc"
     cidr = "10.0.0.0/16"
-    region = "${var.region}"
-    azs = ["${var.region}a", "${var.region}b"]
-
+    azs = ["${var.region}a","${var.region}b"]
     private_subnets = ["10.0.1.0/24", "10.0.2.0/24"]
     public_subnets  = ["10.0.101.0/24", "10.0.102.0/24"]
 
@@ -20,7 +18,7 @@ module "vpc"{
 # Creating EKS cluster
 module "eks"{
     source = "terraform-aws-modules/eks/aws"
-    version = "20.8.5
+    version = "20.8.5"
 
     cluster_name = "${var.cluster-name}"
     cluster_version = "1.30"
