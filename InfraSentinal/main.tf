@@ -18,11 +18,10 @@ module "vpc"{
 # Creating EKS cluster
 module "eks"{
     source = "terraform-aws-modules/eks/aws"
-    version = "20.8.5"
+    version = "21.0.0"
 
-    cluster_name = "${var.cluster-name}"
-    cluster_version = "1.30"
-
+    name               = "${var.cluster-name}"
+    kubernetes_version = "1.33"
     vpc_id = module.vpc.vpc_id
     subnet_ids = module.vpc.private_subnets 
 

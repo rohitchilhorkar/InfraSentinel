@@ -8,8 +8,7 @@ terraform {
 
 # <-- Before terraform init -->
 # S3 bucket: must exist - can't use uppercase chars
-# DynamoDB table: must exist (if used for locking) - partition key state_lock_id
-# Terraform requires a DynamoDB table with a partition key (HASH key) called LockID of type String. 
+# DynamoDB table: must exist (if used for locking) - partition key state_lock_id 
 # S3 key: does not need to exist; Terraform will create it
 
   backend "s3"{
