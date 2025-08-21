@@ -7,15 +7,15 @@ terraform {
 # could create unresolvable or circular dependencies.
 
 # <-- Before terraform init -->
-# S3 bucket: must exist
-# DynamoDB table: must exist (if used for locking)
+# S3 bucket: must exist - can't use uppercase chars
+# DynamoDB table: must exist (if used for locking) - partition key state_lock_id 
 # S3 key: does not need to exist; Terraform will create it
 
   backend "s3"{
-    bucket = "InfraSentinel-state"
-    key    = "InfraSentinel.tfstate"
+    bucket = "infrasentinal-state-bucket"
+    key    = "infrasentinal.tfstate"
     region = "us-east-2"
-    dynamodb_table = "InfraSentinel-lock"
+    dynamodb_table = "infrasentinal-lock"
     encrypt = true
   }
 }
