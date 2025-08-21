@@ -1,5 +1,5 @@
 variable "region" {
-    default  = "us-east-1"
+    default  = "us-east-2"
 }
 
 variable "cluster-name" {
@@ -14,7 +14,4 @@ variable "dynamodb_table_name"{
 }
 variable "s3_key_name"{
     default  = "InfraSentinel.tfstate"
-}
-variable "s3_bucket_name"{
-    default  = "${var.cluster-name}-state"
 }
