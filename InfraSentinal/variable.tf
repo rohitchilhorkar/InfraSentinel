@@ -9,3 +9,12 @@ variable "cluster-name" {
 variable "node_group_size"{
     default  = 2
 }
+variable "dynamodb_table_name"{
+    default  = "InfraSentinel-lock"
+}
+variable "s3_key_name"{
+    default  = "InfraSentinel.tfstate"
+}
+variable "s3_bucket_name"{
+    default  = "${var.cluster-name}-state"
+}
