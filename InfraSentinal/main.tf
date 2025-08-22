@@ -13,6 +13,8 @@ module "vpc"{
     # shared NAT Gateway across all private subnets within the VPC.
     enable_nat_gateway = true
     single_nat_gateway = true
+
+    cluster_iam_role_name = "${var.cluster-name}-cluster-role"
 }
 
 # Creating EKS cluster
@@ -32,6 +34,11 @@ module "eks"{
             min_size = 1
 
             instance_type = ["t3.medium"]
+        }
+        iam_role_additional_policies = {
+        ecr      = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
+        cni      = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
+        worker   = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
         }
     }
 }
